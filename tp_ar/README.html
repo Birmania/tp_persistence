@@ -1,0 +1,118 @@
+<style>.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+.mf { color: #666666 } /* Literal.Number.Float */
+.mh { color: #666666 } /* Literal.Number.Hex */
+.mi { color: #666666 } /* Literal.Number.Integer */
+.mo { color: #666666 } /* Literal.Number.Oct */
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<h1>TP Active Record</h1>
+
+<h2>Fichiers</h2>
+<div class="highlight"><pre><span class="n">tp_ar</span>
+├── <span class="n">config</span>
+│   └── <span class="n">database</span><span class="p">.</span><span class="n">yml</span>              # <span class="n">configuration</span> <span class="n">de</span> <span class="n">la</span> <span class="n">base</span> <span class="n">de</span> <span class="n">donn</span>é<span class="n">es</span>
+├── <span class="n">database</span><span class="p">.</span><span class="n">rb</span>                   # <span class="n">code</span> <span class="n">de</span> <span class="n">connection</span> à <span class="n">la</span> <span class="n">BD</span>
+├── <span class="n">db</span>
+│   ├── <span class="n">development</span><span class="p">.</span><span class="n">sqlite3</span>       # <span class="n">la</span> <span class="n">base</span>
+│   └── <span class="n">migrate</span>                   # <span class="n">le</span> <span class="n">r</span>é<span class="n">pertoire</span> <span class="n">contenant</span> <span class="n">les</span> <span class="n">migrations</span>
+│       └── <span class="mi">001</span><span class="n">_create_people</span><span class="p">.</span><span class="n">rb</span>  # <span class="n">la</span> <span class="n">migration</span> <span class="n">cr</span>é<span class="n">ant</span> <span class="n">la</span> <span class="n">table</span> <span class="n">people</span>
+├── <span class="n">Gemfile</span>
+├── <span class="n">lib</span>
+│   └── <span class="n">person</span><span class="p">.</span><span class="n">rb</span>                 # <span class="n">la</span> <span class="n">classe</span> <span class="n">Person</span> <span class="n">utilisant</span> <span class="n">ActiveRecord</span>
+├── <span class="n">migration</span><span class="p">.</span><span class="n">rb</span>                  # <span class="n">code</span> <span class="n">pour</span> <span class="n">appliquer</span> <span class="n">les</span> <span class="n">migrations</span>
+└── <span class="n">spec</span>
+    ├── <span class="n">person_spec</span><span class="p">.</span><span class="n">rb</span>            # <span class="n">sp</span>é<span class="n">cifications</span> <span class="n">de</span> <span class="n">la</span> <span class="n">classe</span> <span class="n">Person</span>
+    └── <span class="n">spec_helper</span><span class="p">.</span><span class="n">rb</span>
+</pre></div>
+<p>Installez les libraires nécessaires au TP :</p>
+<div class="highlight"><pre><span class="n">bundle</span> <span class="n">install</span>
+</pre></div>
+<h2>Migration</h2>
+
+<ol>
+<li>Inspecter la migration <code>001_create_people</code></li>
+<li>Appliquer la migration : <code>ruby migration.rb</code></li>
+<li><code>sqlite3 db/development.sqlite3</code> : console du SGBD sqlite. Étudiez et expliquez 
+les retours des commandes <code>.databases</code> et <code>.schema</code>. Regardez le contenu des tables présentes (<code>select * from table;</code>).<code>.help</code> vous renseignera sur les
+autres commandes disponibles, trouvez celle vous permettant de quitter.</li>
+<li>Créez une nouvelle migration pour rajouter les colonnes <code>last_name</code> et <code>first_name</code>. Appliquez la migration.
+Utilisez la console sqlite3 pour vérifier le changement. Expliquez le changement sur <code>schema_migrations</code>.</li>
+</ol>
+
+<h2> ORM</h2>
+
+<p>Tester la couche d&#39;ORM ActiveRecord avec irb :</p>
+<div class="highlight"><pre><span class="n">irb</span> <span class="o">-</span><span class="n">r</span> <span class="o">./</span><span class="n">database</span><span class="p">.</span><span class="n">rb</span> # <span class="n">ou</span> <span class="n">require</span> <span class="s">&#39;./database&#39;</span> <span class="n">dans</span> <span class="n">irb</span>
+</pre></div>
+<ol>
+<li>Créez 2 personnes</li>
+<li>Listez les personnes créées</li>
+<li>Modifiez une personne</li>
+<li>Supprimez une personne.</li>
+</ol>
+
+<h2>Validation</h2>
+
+<p>Une personne doit être valide si elle dispose d&#39;un nom et d&#39;un prénom. Le login d&#39;une personne doit être unique sur toute la base.</p>
+
+<p>Spécifiez cela dans <code>spec/person_spec.rb</code>, codez dans <code>lib/person.rb</code></p>
+
+<p>Astuce : rédigez les tests à la forme négative : une personne n&#39;est pas valide sans XXX</p>
+
+<h2>Relations</h2>
+
+<p>Créez une relation 1-1, une relation 1-N, puis une relation N-N impliquant la classe <code>Person</code>.</p>
